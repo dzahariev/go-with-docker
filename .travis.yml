@@ -10,8 +10,5 @@ before_install:
     - sudo docker container cp buildkitd:/usr/bin/buildctl /usr/local/bin/
     - export BUILDKIT_HOST="docker-container://buildkitd"
 
-env:
-  - DOCKER_BUILDKIT=1
-
 script:
-  - docker build .
+  - buildctl build .
