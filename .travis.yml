@@ -1,13 +1,12 @@
-language: go
+sudo: required
 
-go:
-  - 1.14.x
+addons:
+    apt:
+      packages:
+        - docker-ce
 
 env:
   - DOCKER_BUILDKIT=1
-
-services:
-  - docker
 
 script:
   - docker build .
