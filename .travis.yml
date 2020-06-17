@@ -1,9 +1,14 @@
+dist: bionic
 sudo: required
 
-addons:
-    apt:
-      packages:
-        - docker-ce
+services:
+    - docker
+
+before_install:
+    - docker container run --rm --privileged multiarch/qemu-user-static --reset -p yes
+    - docker container run -d --rm --name buildkitd --privileged moby/buildkit:latest
+    - sudo docker container cp buildkitd:/usr/bin/buildctl /usr/local/bin/
+    - export BUILDKIT_HOST="docker-container://buildkitd"
 
 env:
   - DOCKER_BUILDKIT=1
