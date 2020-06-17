@@ -1,6 +1,6 @@
-language: shell
-os: linux
 dist: xenial
+os: linux
+language: shell
 
 services:
     - docker
