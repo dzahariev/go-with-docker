@@ -1,5 +1,8 @@
 dist: bionic
+
 sudo: required
+
+language: minimal
 
 services:
     - docker
@@ -11,4 +14,4 @@ before_install:
     - export BUILDKIT_HOST="docker-container://buildkitd"
 
 script:
-  - buildctl build .
+  - buildctl build --frontend=dockerfile.v0 
