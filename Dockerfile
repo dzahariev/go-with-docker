@@ -1,5 +1,5 @@
 FROM golang:alpine AS build
-WORKDIR /go/src/github.com/dzahariev/go-with-prow/
+WORKDIR /go/src/github.com/dzahariev/go-with-docker/
 COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags "$(build/ldflags)" -o /app main.go
 
@@ -19,9 +19,9 @@ RUN CGO_ENABLED=0 go test ./pkg02 -ginkgo.noColor -v
 RUN touch finished.test-pckg02
 
 FROM scratch AS join
-COPY --from=test-main /go/src/github.com/dzahariev/go-with-prow/finished.test-main /test-results/.
-COPY --from=test-pckg01 /go/src/github.com/dzahariev/go-with-prow/finished.test-pckg01 /test-results/.
-COPY --from=test-pckg02 /go/src/github.com/dzahariev/go-with-prow/finished.test-pckg02 /test-results/.
+COPY --from=test-main /go/src/github.com/dzahariev/go-with-docker/finished.test-main /test-results/.
+COPY --from=test-pckg01 /go/src/github.com/dzahariev/go-with-docker/finished.test-pckg01 /test-results/.
+COPY --from=test-pckg02 /go/src/github.com/dzahariev/go-with-docker/finished.test-pckg02 /test-results/.
 COPY --from=build /app /app
 
 FROM scratch AS release

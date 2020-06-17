@@ -1,4 +1,7 @@
 # go-with-docker
+
+[![Build Status](https://travis-ci.org/dzahariev/go-with-docker.svg?branch=master)](https://travis-ci.org/dzahariev/go-with-docker)
+
 Sample repo for CI with docker using multistage builds. 
 The Dockerfile example shows how to execute unit tests for different packages in parallel with the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) engine.
 
