@@ -1,6 +1,7 @@
 language: shell
 os: linux
 sudo: required
+dist: xenial
 
 services:
     - docker
