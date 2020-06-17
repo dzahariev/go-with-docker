@@ -1,8 +1,6 @@
-dist: bionic
-
+language: shell
+os: linux
 sudo: required
-
-language: minimal
 
 services:
     - docker
@@ -14,4 +12,4 @@ before_install:
     - export BUILDKIT_HOST="docker-container://buildkitd"
 
 script:
-  - buildctl build --frontend=dockerfile.v0 
+  - buildctl build --frontend=dockerfile.v0 --local context=. --local dockerfile=.
