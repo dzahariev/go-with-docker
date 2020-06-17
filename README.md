@@ -115,3 +115,6 @@ In case tets are failing, the release image is not prodiced and build result loo
 ------
 failed to solve with frontend dockerfile.v0: failed to build LLB: executor failed running [/bin/sh -c CGO_ENABLED=0 go test ./pkg01 -ginkgo.noColor -v]: runc did not terminate sucessfully
 ```
+## Acknowledgements
+
+With the help of article ["Building Multi-Platform Docker Images with Travis CI and BuildKit"](https://vladimir.varank.in/notes/2020/01/buildkit-multi-platform-travis-ci/) by Vladimir Varankin  
